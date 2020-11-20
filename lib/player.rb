@@ -1,5 +1,7 @@
 class Player
 
+  attr_accessor :score
+
   SCORE = [0, 15, 30, 40, 'DEUCE', 'ADVANTAGE']
 
   def initialize
@@ -17,6 +19,10 @@ class Player
 
   def score
     score_value
+  end
+
+  def current_winner
+    @score > 3 ? self : false
   end
 
 end

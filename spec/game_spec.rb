@@ -27,5 +27,10 @@ RSpec.describe Game do
        end
    end
 
-
+   context 'when we have a winner' do
+        it 'will show the results of the game with the name of the winner' do
+            player_1.score = 4
+            expect(subject.results). to eq(player_1)
+        end
+   end
 end

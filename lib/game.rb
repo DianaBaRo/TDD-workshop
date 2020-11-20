@@ -10,4 +10,14 @@ class Game
         player.wins_point
     end
 
+    def results 
+        if @player_1.current_winner
+            @player_1
+        elsif @player_2.current_winner
+            @player_2
+        else
+            "No winner"
+        end
+    end
+
 end
