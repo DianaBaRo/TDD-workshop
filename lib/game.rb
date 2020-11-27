@@ -7,14 +7,15 @@ class Game
     end
 
     def results 
-       output_winner
+        return 'Deuce' if deuce?
+        return output_winner if winner?
     end
+
+    private
 
     def deuce?
         @player_1.points == 3 && @player_2.points == 3
     end
-
-    private
 
     def player_wins(player)
         player.wins_point
@@ -28,6 +29,10 @@ class Game
         else
             "No winner yet"
         end
+    end
+
+    def winner?
+        @player_1.current_winner || @player_2.current_winner
     end
 
 end

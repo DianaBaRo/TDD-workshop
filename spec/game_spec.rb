@@ -24,11 +24,27 @@ RSpec.describe Game do
    end
 
    context 'when deuce' do
-      it 'checks if a game is deuce' do
-        player_1.points = 3
-        player_2.points = 3
-        
-        expect(subject.deuce?).to be true
+      before do
+        3.times do
+          player_1.wins_point
+          player_2.wins_point
+        end
       end
+
+      it 'checks if a game is deuce' do
+        expect(subject.results).to eq('Deuce')
+      end
+   end
+
+   context 'when advantage' do
+    it 'player_1 wins if player win a point from advantage' do
+      3.times do
+        player_1.wins_point
+        player_2.wins_point
+      end
+      2.times { player_1.wins_point }
+
+      expect(subject.results).to eq(player_1)
+    end
    end
 end
