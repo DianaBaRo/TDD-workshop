@@ -6,10 +6,6 @@ class Game
         @player_2 = player_2
     end
 
-    def player_wins(player)
-        player.wins_point
-    end
-
     def results 
         if @player_1.current_winner
             @player_1
@@ -18,6 +14,12 @@ class Game
         else
             "No winner"
         end
+    end
+
+    private
+
+    def player_wins(player)
+        player.wins_point
     end
 
 end

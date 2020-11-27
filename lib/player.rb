@@ -13,16 +13,18 @@ class Player
     score_value
   end
 
-  def score_value
-    SCORE[@score]
-  end
-
   def score
     score_value
   end
 
   def current_winner
     @score > 3 ? self : false
+  end
+
+  private
+
+  def score_value
+    SCORE[@score]
   end
 
 end
