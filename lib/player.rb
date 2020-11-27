@@ -1,15 +1,15 @@
 class Player
 
-  attr_accessor :score
+  attr_accessor :points
 
   SCORE = [0, 15, 30, 40, 'DEUCE', 'ADVANTAGE']
 
   def initialize
-    @score = 0
+    @points = 0
   end
 
   def wins_point
-    @score += 1
+    @points += 1
     score_value
   end
 
@@ -18,13 +18,13 @@ class Player
   end
 
   def current_winner
-    @score > 3 ? self : false
+    @points > 3 ? self : false
   end
 
   private
 
   def score_value
-    SCORE[@score]
+    SCORE[@points]
   end
 
 end

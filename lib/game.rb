@@ -7,19 +7,27 @@ class Game
     end
 
     def results 
-        if @player_1.current_winner
-            @player_1
-        elsif @player_2.current_winner
-            @player_2
-        else
-            "No winner"
-        end
+       output_winner
+    end
+
+    def deuce?
+        @player_1.points == 3 && @player_2.points == 3
     end
 
     private
 
     def player_wins(player)
         player.wins_point
+    end
+
+    def output_winner
+        if @player_1.current_winner
+            @player_1
+        elsif @player_2.current_winner
+            @player_2
+        else
+            "No winner yet"
+        end
     end
 
 end

@@ -4,7 +4,7 @@ RSpec.describe Player do
     subject { Player.new }
 
     context 'when we initiaLize a player' do
-        it { is_expected.to have_attributes(score: 0) }
+        it { is_expected.to have_attributes(points: 0) }
     end
 
     context 'when a player wins a point' do
