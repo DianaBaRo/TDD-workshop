@@ -37,14 +37,43 @@ RSpec.describe Game do
    end
 
    context 'when advantage' do
-    it 'player_1 wins if player win a point from advantage' do
-      3.times do
-        player_1.wins_point
-        player_2.wins_point
-      end
-      2.times { player_1.wins_point }
+      it 'player_1 wins if player win a point from advantage' do
+        3.times do
+          player_1.wins_point
+          player_2.wins_point
+        end
+        2.times { player_1.wins_point }
 
-      expect(subject.results).to eq(player_1)
-    end
+        expect(subject.results).to eq(player_1)
+      end
+
+      it 'player_2 wins if player win a point from advantage' do
+        3.times do
+          player_1.wins_point
+          player_2.wins_point
+        end
+        2.times { player_2.wins_point }
+
+        expect(subject.results).to eq(player_2)
+      end
+
+      it 'gives a score of Deuce if player_1 loses its advantage' do
+        4.times do
+          player_1.wins_point
+          player_2.wins_point
+        end
+
+        expect(subject.results).to eq('Deuce')
+      end
+
+      it 'gives a score of Deuce if player_2 loses its advantage' do
+        4.times do
+          player_1.wins_point
+          player_2.wins_point
+        end
+
+        expect(subject.results).to eq('Deuce')
+      end
+
    end
 end

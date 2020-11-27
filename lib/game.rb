@@ -7,7 +7,7 @@ class Game
     end
 
     def results 
-        return 'Deuce' if deuce?
+        return 'Deuce' if deuce? || @player_1.points == @player_2.points
         return output_winner if winner?
     end
 
